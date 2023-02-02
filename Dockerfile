@@ -33,12 +33,12 @@ RUN apk add --no-cache --virtual .build-deps\
       && ./autogen.sh --enable-ipv6 \
       && make && make install \
       && cd / \
-      && wget https://www.intra2net.com/en/developer/libftdi/download/libftdi1-1.5.tar.bz2 --no-check-certificate \
-      && tar xfj libftdi1-1.5.tar.bz2 \
-      && cd libftdi1-1.5 \
-      && ./configure --without-examples \
-      && make && make install \
-      && cd / \
+     # && wget https://www.intra2net.com/en/developer/libftdi/download/libftdi1-1.5.tar.bz2 --no-check-certificate \
+     # && tar xfj libftdi1-1.5.tar.bz2 \
+     # && cd libftdi1-1.5 \
+     # && ./configure --without-examples \
+     # && make && make install \
+     # && cd / \
       && git clone https://github.com/OpenLightingProject/ola.git --depth 1 -b 0.10.4 ola \
       && cd ola \
       && autoreconf -i \
