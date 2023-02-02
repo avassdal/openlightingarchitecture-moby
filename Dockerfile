@@ -27,15 +27,15 @@ RUN apk add --no-cache --virtual .build-deps\
       protobuf \
       util-linux \
       && pip install --no-cache-dir protobuf==3.1.0 \
-      && git clone https://git.code.sf.net/p/liblo/git --depth 1 -b 0.28 liblo \
+      && git clone https://github.com/radarsat1/liblo --depth 1 -b 0.28 liblo \
       && cd liblo \
       && sed -i 's/-Werror/-Wno-error/' configure.ac \
       && ./autogen.sh --enable-ipv6 \
       && make && make install \
       && cd / \
-      && wget https://www.intra2net.com/en/developer/libftdi/download/libftdi-0.20.tar.gz \
-      && tar xfz libftdi-0.20.tar.gz \
-      && cd libftdi-0.20 \
+      && wget https://www.intra2net.com/en/developer/libftdi/download/libftdi1-1.5.tar.bz2 \
+      && tar xfz libftdi1-1.5.tar.bz2 \
+      && cd libftdi1-1.5 \
       && ./configure --without-examples \
       && make && make install \
       && cd / \
@@ -45,7 +45,7 @@ RUN apk add --no-cache --virtual .build-deps\
       && ./configure \
       && make && make install \
       && cd / \
-      && rm -rf /ola /liblo libftdi-0.20 \
+      && rm -rf /ola /liblo libftdi1-1.5 \
       && apk del .build-deps
 
 EXPOSE 9090
