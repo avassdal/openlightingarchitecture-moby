@@ -33,7 +33,7 @@ RUN apk add --no-cache --virtual .build-deps\
       && ./autogen.sh --enable-ipv6 \
       && make && make install \
       && cd / \
-      && wget https://www.intra2net.com/en/developer/libftdi/download/libftdi1-1.5.tar.bz2 \
+      && wget https://www.intra2net.com/en/developer/libftdi/download/libftdi1-1.5.tar.bz2 --no-check-certificate \
       && tar xfz libftdi1-1.5.tar.bz2 \
       && cd libftdi1-1.5 \
       && ./configure --without-examples \
